@@ -312,6 +312,7 @@ img {
 /* ================= HOW MOBILE ================= */
 .mobility {
   height: 61.15rem;
+  background: #ffffff;
 }
 .mobility__title {
   position: absolute;
@@ -340,7 +341,8 @@ img {
   height: 3.3rem;
   background: #ffffff;
   border-radius: 100rem;
-  border: 0.5rem solid #003d40;
+  --stroke: #003d40;
+  --stroke-w: 0.5rem;
   box-shadow: -0.4rem 0rem 1.7rem 0rem rgba(0, 0, 0, 0.5);
 }
 .range {
@@ -381,6 +383,7 @@ img {
 /* ================= WHAT CHANGES ================= */
 .changes {
   height: 90.4rem;
+  background: #ffffff;
 }
 .changes__title {
   position: absolute;
@@ -574,6 +577,7 @@ img {
 /* ================= WHY NOTHING STUCK ================= */
 .stuck {
   height: 89.63rem;
+  background: #ffffff;
 }
 .stuck__title {
   position: absolute;
@@ -703,6 +707,7 @@ img {
 /* ================= MORE FLEXIBLE ================= */
 .flex {
   height: 54.6rem;
+  background: #ffffff;
 }
 .flex__title {
   position: absolute;
@@ -769,6 +774,7 @@ img {
 /* ================= WHY I BUILT THIS ================= */
 .story {
   height: 176.24rem;
+  background: #ffffff;
 }
 .story__title {
   position: absolute;
@@ -1169,6 +1175,7 @@ img {
 /* ================= HOW IT WORKS ================= */
 .roadmap {
   height: 109.95rem;
+  background: #ffffff;
 }
 .roadmap__title {
   position: absolute;
@@ -1459,6 +1466,7 @@ img {
 /* ================= FEATURES ================= */
 .features {
   height: 47.9rem;
+  background: #ffffff;
 }
 .feature__top--1 {
   position: absolute;
@@ -1827,6 +1835,7 @@ img {
 /* ================= REVIEWS ================= */
 .reviews {
   height: 83.9rem;
+  background: #ffffff;
 }
 .reviews__quote {
   position: absolute;
@@ -1874,6 +1883,7 @@ img {
 /* ================= OFFER ================= */
 .offer {
   height: 50.57rem;
+  background: #ffffff;
 }
 .offer__coffee-text {
   position: absolute;
@@ -2044,6 +2054,7 @@ img {
 /* ================= GUARANTEE ================= */
 .guarantee {
   height: 23.7rem;
+  background: #ffffff;
 }
 .guarantee__badge {
   position: absolute;
@@ -2066,7 +2077,7 @@ img {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0rem 0.26rem 0.26rem #9a6e2f;
+  filter: drop-shadow(0rem 0.26rem 0.26rem #9a6e2f);
   white-space: nowrap;
 }
 .guarantee__title {
@@ -2117,6 +2128,7 @@ img {
 /* ================= BONUSES ================= */
 .bonuses {
   height: 119.6rem;
+  background: #ffffff;
 }
 .bonuses__title {
   position: absolute;
@@ -2660,6 +2672,7 @@ img {
 /* ================= FAQ ================= */
 .faq {
   height: 214.5rem;
+  background: #ffffff;
 }
 .faq__title {
   position: absolute;
@@ -2800,6 +2813,7 @@ img {
 /* ================= CONTACTS ================= */
 .contacts {
   height: 42.02rem;
+  background: #ffffff;
 }
 .contacts__title {
   position: absolute;
@@ -3545,4 +3559,63 @@ img {
 
 .footer__btn:active {
   transform: scale(0.97);
+}
+
+/* Етапи фото над повзунком: накладені один на один, прозорість задає js/range.js */
+.mobility__stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mobility__stage.is-visible {
+  opacity: 1;
+}
+
+/* Фото тренерки й розмитий напис обрізаються по правому краю картки, як у макеті */
+.story__visual {
+  clip-path: inset(0 2.4rem 0 -10rem);
+}
+
+/* Правка дизайнера: текст тижнів не має заходити на фото — фото трохи правіше */
+.week--2 {
+  background-position: 12.9rem -4.32rem, 0 0;
+}
+
+.week--3 {
+  background-position: 0 0, 12.4rem -3.06rem, 0 0;
+}
+
+.week__text--3 {
+  width: 19.4rem;
+}
+
+/* Тінь картки «Why I built this» окремим шаром: від верху картки до банера статистики бокової тіні немає,
+   на краях зони вона плавно згасає (без різких обрізів) */
+.story__card {
+  z-index: 0; /* власний контекст: шар тіні лягає під вміст картки, але над фоном секції */
+  box-shadow: none;
+}
+
+.story__card::before {
+  content: "";
+  position: absolute;
+  inset: -5rem;
+  z-index: -1;
+  border: 5rem solid transparent;
+  border-radius: 7.4rem;
+  background: #ffffff padding-box;
+  filter: drop-shadow(0 0.4rem 1.5rem rgba(0, 0, 0, 0.15));
+  /* координати маски — від верху шару (картка починається на 5rem) */
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 7rem, transparent 14rem, transparent 64rem, #000 68rem, #000 100%);
+  mask-image: linear-gradient(180deg, #000 0, #000 7rem, transparent 14rem, transparent 64rem, #000 68rem, #000 100%);
+}
+
+/* GIF квадратні (720×720) — заповнюють бокс як фото в макеті; статичне фото під ними як заглушка */
+.flex__img {
+  object-fit: cover;
+  background: center / cover no-repeat;
 }

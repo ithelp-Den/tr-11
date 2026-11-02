@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/nullStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./css/main.css?v=3">
+    <link rel="stylesheet" href="./css/main.css?v=4">
     <title>Double Your Flexibility in the Next 3 Weeks</title>
 </head>
 <body>
@@ -63,10 +63,14 @@
   <!-- HOW MOBILE -->
   <section class="mobility">
     <h2 class="mobility__title">How mobile &amp; flexible <span class="grad">you want to be?</span></h2>
-    <img src="./images/mobile-photo.webp" class="mobility__photo" alt="Karyna Zubalenok" loading="lazy">
+    <div class="mobility__photo">
+      <img src="./images/mobile-stage-1.webp" class="mobility__stage is-visible" alt="Karyna Zubalenok: stage 1">
+      <img src="./images/mobile-stage-2.webp" class="mobility__stage" alt="Karyna Zubalenok: stage 2">
+      <img src="./images/mobile-stage-3.webp" class="mobility__stage" alt="Karyna Zubalenok: stage 3">
+    </div>
     <div class="range" id="mobility-range">
       <div class="range__fill"></div>
-      <button class="range__handle" type="button" aria-label="Choose your level">
+      <button class="range__handle g-stroke" type="button" aria-label="Choose your level">
         <i></i><i></i><i></i>
       </button>
     </div>
@@ -120,8 +124,8 @@
   <section class="flex">
     <h2 class="flex__title"><span class="c-191919">What</span> “more flexible” <span class="c-191919">actually looks like</span></h2>
     <p class="flex__text flex__text--1"><span><b>Here’s an expected milestone you can test:</b> <br>15cm off the floor in a forward fold today, 5cm inches by month’s end. That’s <b>“doubling”</b> - half the gap to your body’s real range, gone</span></p>
-    <img src="./images/flex-1.webp" class="flex__img flex__img--1" alt="" loading="lazy">
-    <img src="./images/flex-2.webp" class="flex__img flex__img--2" alt="" loading="lazy">
+    <img src="https://itden-cdn.b-cdn.net/vd/VIDEO%202.gif" class="flex__img flex__img--1" alt="" loading="lazy" style="background-image: url(./images/flex-1.webp)">
+    <img src="https://itden-cdn.b-cdn.net/vd/VIDEO%203.gif" class="flex__img flex__img--2" alt="" loading="lazy" style="background-image: url(./images/flex-2.webp)">
     <p class="flex__text flex__text--2"><span>And it’s range you’ll actually use — sitting, bending, reaching, getting off the floor - not party tricks.<b>&nbsp;<br>Train in the right order, and four weeks is all it takes</b></span></p>
   </section>
 
@@ -557,7 +561,7 @@
 </script>
 
 <script src="./js/anim.js"></script>
-<script src="./js/range.js"></script>
+<script src="./js/range.js?v=2"></script>
 <script src="./js/faq.js?v=5"></script>
 <script src="./js/timer.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handle = range.querySelector(".range__handle");
   const fill = range.querySelector(".range__fill");
+  const stages = document.querySelectorAll(".mobility__stage");
+  const startLeft = handle.offsetLeft; // стартове положення ручки з макету — це перший етап
+
+  // Три етапи фото: показуємо етап, найближчий до положення ручки; зміна — плавна прозорість (CSS)
+  const showStages = (progress) => {
+    const active = Math.round(progress * (stages.length - 1));
+    stages.forEach((img, i) => img.classList.toggle("is-visible", i === active));
+  };
 
   // Ставимо ручку так, щоб її центр був під пальцем; заливка доходить до правого краю ручки
   const setPosition = (clientX) => {
@@ -14,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     handle.style.left = (left / rect.width) * 100 + "%";
     fill.style.width = ((left + handleWidth) / rect.width) * 100 + "%";
+    showStages(Math.max(0, (left - startLeft) / (maxLeft - startLeft)));
   };
 
   range.addEventListener("pointerdown", (e) => {
