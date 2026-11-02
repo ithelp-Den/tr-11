@@ -3619,3 +3619,9 @@ img {
   object-fit: cover;
   background: center / cover no-repeat;
 }
+
+/* Нові фото етапів (2180×1842) вищі за бокс макету — заповнюємо бокс, лишаючи низ з килимком */
+.mobility__stage {
+  object-fit: cover;
+  object-position: center bottom;
+}
